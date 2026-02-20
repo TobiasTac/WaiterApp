@@ -1,6 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import { router } from 'router';
+import { router } from './router';
 
 
 mongoose.connect('mongodb://localhost:27017')
