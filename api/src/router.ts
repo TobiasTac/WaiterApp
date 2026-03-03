@@ -29,7 +29,7 @@ router.post('/categories', createCategory);
 router.get('/products', listProducts);
 
 // Create products
-router.post('/products', upload.single('image'),createProduct);
+router.post('/products', upload.single('image'), createProduct);
 
 // Get products by category
 router.get('/categories/:categoryId/products', (req, res) => {
