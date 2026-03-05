@@ -1,4 +1,5 @@
 import { Order } from '../../types/Order'
+import { OrderModal } from '../OrderModal'
 import { Board, OrdersContainer } from './styles'
 
 interface OrdersBoardProps {
@@ -14,6 +15,8 @@ export function OrdersBoard({ icon, title, orders }: OrdersBoardProps) {
 
   return (
     <Board>
+      <OrderModal />
+
       <header>
         <span>{icon}</span>
         <strong>{title}</strong>
