@@ -17,3 +17,36 @@ export const Board = styled.div`
     gap: 8px;
   }
 ` as any
+
+export const OrdersContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+
+  button {
+    width: 100%;
+    background: #fff;
+    border: 1px solid rgba(204, 204, 204, 0.4);
+    border-radius: 8px;
+    height: 112px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    outline: none;
+
+    strong {
+      font-weight: 500;
+    }
+
+    span {
+      font-size: 14px;
+    }
+
+    & + button {
+      margin-top: 24px;
+    }
+  }
+` as any
