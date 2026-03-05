@@ -49,4 +49,9 @@ export const OrdersContainer = styled.div`
       margin-top: 24px;
     }
   }
+
+  button:hover {
+    background: #eee;
+    transition: 0.3s;
+  }
 ` as any
