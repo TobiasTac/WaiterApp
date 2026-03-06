@@ -137,6 +137,11 @@ export const Actions = styled.footer`
     gap: 8px;
   }
 
+  .primary:hover {
+    background: #444;
+    transition: 0.2s;
+  }
+
   .secondary {
     margin-top: 12px;
     padding: 14px 24px;
@@ -144,5 +149,10 @@ export const Actions = styled.footer`
     font-weight: bold;
     border: 0;
     background: transparent;
+  }
+
+  .secondary:hover {
+    color: #f30000;
+    transition: 0.2s;
   }
 ` as any

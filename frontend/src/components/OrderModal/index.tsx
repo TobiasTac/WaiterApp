@@ -1,4 +1,4 @@
-import { ModalBody, OrderDetails, Overlay } from './styles'
+import { Actions, ModalBody, OrderDetails, Overlay } from './styles'
 
 import closeIcon from '../../assets/images/close-icon.svg'
 import { Order } from '../../types/Order'
@@ -83,6 +83,17 @@ export function OrderModal({ order, visible }: OrderModalProps) {
             <strong>{formatCurrency(total)}</strong>
           </div>
         </OrderDetails>
+
+        <Actions>
+          <button type="button" className="primary">
+            <span>🧑‍🍳</span>
+            <strong>Iniciar Produção</strong>
+          </button>
+
+          <button type="button" className="secondary">
+            Cancelar Pedido
+          </button>
+        </Actions>
       </ModalBody>
     </Overlay>
   )
