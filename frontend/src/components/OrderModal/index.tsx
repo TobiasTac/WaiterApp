@@ -1,5 +1,6 @@
 import { Actions, ModalBody, OrderDetails, Overlay } from './styles'
 
+import { useCallback, useEffect } from 'react'
 import closeIcon from '../../assets/images/close-icon.svg'
 import { Order } from '../../types/Order'
 import { formatCurrency } from '../../utils/formatCurrency'
@@ -26,6 +27,26 @@ const STATUS_PROPS = {
 } as any
 
 export function OrderModal({ order, visible, onClose }: OrderModalProps) {
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose()
+      }
+    },
+    [onClose],
+  )
+
+  useEffect(() => {
+    if (!visible) {
+      return
+    }
+    document.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [handleKeyDown, visible])
+
   if (!visible || !order) {
     return null
   }
