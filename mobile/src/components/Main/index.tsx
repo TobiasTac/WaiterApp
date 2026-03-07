@@ -1,5 +1,10 @@
 import { Text } from '../Text'
+import { Container } from './styles'
 
 export function Main() {
-  return <Text> Main Renderizou </Text>
+  return (
+    <Container>
+      <Text> Main Renderizou </Text>
+    </Container>
+  )
 }
