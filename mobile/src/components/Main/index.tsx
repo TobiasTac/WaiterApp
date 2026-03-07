@@ -1,10 +1,25 @@
 import { Header } from '../Header'
-import { Container } from './styles'
+import {
+  CategoriesContainer,
+  Container,
+  Footer,
+  FooterContainer,
+  MenuContainer
+} from './styles'
 
 export function Main() {
   return (
-    <Container>
-      <Header />
-    </Container>
+    <>
+      <Container>
+        <Header />
+
+        <CategoriesContainer></CategoriesContainer>
+        <MenuContainer></MenuContainer>
+      </Container>
+
+      <Footer>
+        <FooterContainer> </FooterContainer>
+      </Footer>
+    </>
   )
 }
