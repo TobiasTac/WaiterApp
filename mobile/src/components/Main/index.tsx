@@ -1,3 +1,4 @@
+import { Categories } from '../Categories'
 import { Header } from '../Header'
 import {
   CategoriesContainer,
@@ -13,7 +14,9 @@ export function Main() {
       <Container>
         <Header />
 
-        <CategoriesContainer></CategoriesContainer>
+        <CategoriesContainer>
+          <Categories />
+        </CategoriesContainer>
         <MenuContainer></MenuContainer>
       </Container>
 
