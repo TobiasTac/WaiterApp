@@ -1,10 +1,10 @@
-import { Text } from '../Text'
+import { Header } from '../Header'
 import { Container } from './styles'
 
 export function Main() {
   return (
     <Container>
-      <Text> Main Renderizou </Text>
+      <Header />
     </Container>
   )
 }
