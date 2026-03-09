@@ -1,3 +1,4 @@
+import { Button } from '../Button'
 import { Categories } from '../Categories'
 import { Header } from '../Header'
 import { Menu } from '../Menu'
@@ -24,7 +25,9 @@ export function Main() {
       </Container>
 
       <Footer>
-        <FooterContainer> </FooterContainer>
+        <FooterContainer>
+          <Button />
+        </FooterContainer>
       </Footer>
     </>
   )
