@@ -26,7 +26,9 @@ export function Main() {
 
       <Footer>
         <FooterContainer>
-          <Button />
+          <Button onPress={() => alert('ai')} disabled>
+            Novo Pedido
+          </Button>
         </FooterContainer>
       </Footer>
     </>
