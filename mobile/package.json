@@ -1,7 +1,7 @@
 {
   "name": "mobile",
   "version": "1.0.0",
-  "main": "node_modules/expo/AppEntry.js",
+  "main": "index.js",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -9,24 +9,24 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "@expo/metro-runtime": "~3.1.3",
+    "@expo/metro-runtime": "~6.1.2",
     "axios": "^1.3.4",
-    "expo": "~50.0.0",
-    "expo-font": "~11.10.3",
-    "expo-status-bar": "~1.11.1",
+    "expo": "~54.0.33",
+    "expo-font": "~14.0.11",
+    "expo-status-bar": "~3.0.9",
     "intl": "^1.2.5",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-native": "0.73.6",
-    "react-native-svg": "14.1.0",
-    "react-native-web": "~0.19.6",
-    "styled-components": "^5.3.8"
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-native": "0.81.5",
+    "react-native-svg": "15.12.1",
+    "react-native-web": "^0.21.0",
+    "styled-components": "^6.3.11"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
-    "@types/react": "~18.2.45",
+    "@types/react": "~19.1.10",
     "@types/styled-components": "^5.1.26",
-    "@types/styled-components-react-native": "^5.2.1",
+    "@types/styled-components-react-native": "^5.2.5",
     "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.54.1",
     "eslint": "^8.36.0",
