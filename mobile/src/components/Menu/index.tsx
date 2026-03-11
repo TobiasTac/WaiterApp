@@ -2,7 +2,7 @@ import React from 'react'
 import { FlatList } from 'react-native'
 import { products } from '../../mocks/products'
 import { Text } from '../Text'
-import { Image, Product, ProductDetails } from './styles'
+import { Product, ProductDetails, ProductImage } from './styles'
 
 export function Menu() {
   return (
@@ -13,7 +13,11 @@ export function Menu() {
       keyExtractor={product => product._id}
       renderItem={({ item: product }) => (
         <Product>
-          <Image />
+          <ProductImage
+            source={{
+              uri: `http://172.27.201.255:3001/uploads/${product.imagePath}`
+            }}
+          />
           <ProductDetails>
             <Text> {product.name} </Text>
             <Text> {product.description} </Text>
