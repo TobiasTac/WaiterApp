@@ -8,6 +8,8 @@ export function Menu() {
   return (
     <FlatList
       data={products}
+      style={{ marginTop: 32 }}
+      contentContainerStyle={{ paddingHorizontal: 24 }}
       keyExtractor={product => product._id}
       renderItem={({ item: product }) => (
         <Product>
