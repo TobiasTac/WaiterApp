@@ -8,9 +8,10 @@ import { Form, Header, Input, ModalBody, Overlay } from './styles'
 interface TableModalProps {
   visible: boolean
   onClose(): void
+  onSave(table: string): void
 }
 
-export function TableModal({ visible, onClose }: TableModalProps) {
+export function TableModal({ visible, onClose, onSave }: TableModalProps) {
   const [table, setTable] = useState('')
 
   return (
@@ -33,7 +34,7 @@ export function TableModal({ visible, onClose }: TableModalProps) {
               onChangeText={setTable}
             />
 
-            <Button onPress={() => alert(table)} disabled={table.length === 0}>
+            <Button onPress={() => onSave(table)} disabled={table.length === 0}>
               Salvar
             </Button>
           </Form>

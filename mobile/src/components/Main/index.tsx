@@ -14,6 +14,11 @@ import {
 
 export function Main() {
   const [isTableModalVisible, setIsTableModalVisible] = useState(false)
+  const [selectedTable, setSelectedTable] = useState('')
+
+  function handleSaveTable(table: string) {
+    setSelectedTable(table)
+  }
 
   return (
     <>
@@ -39,6 +44,7 @@ export function Main() {
       <TableModal
         visible={isTableModalVisible}
         onClose={() => setIsTableModalVisible(false)}
+        onSave={handleSaveTable}
       />
     </>
   )
