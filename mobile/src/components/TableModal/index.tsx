@@ -1,7 +1,8 @@
 import { Modal, TouchableOpacity } from 'react-native'
+import { Button } from '../Button'
 import { Close } from '../Icons/Close'
 import { Text } from '../Text'
-import { Form, Header, ModalBody, Overlay } from './styles'
+import { Form, Header, Input, ModalBody, Overlay } from './styles'
 
 export function TableModal() {
   return (
@@ -16,7 +17,11 @@ export function TableModal() {
             </TouchableOpacity>
           </Header>
 
-          <Form></Form>
+          <Form>
+            <Input placeholder="Número da mesa" placeholderTextColor="#666" />
+
+            <Button onPress={() => alert('Salvou')}> Salvar </Button>
+          </Form>
         </ModalBody>
       </Overlay>
     </Modal>
