@@ -36,7 +36,10 @@ export function Main() {
         </FooterContainer>
       </Footer>
 
-      <TableModal visible={isTableModalVisible} />
+      <TableModal
+        visible={isTableModalVisible}
+        onClose={() => setIsTableModalVisible(false)}
+      />
     </>
   )
 }
