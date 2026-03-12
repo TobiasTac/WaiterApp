@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Button } from '../Button'
 import { Categories } from '../Categories'
 import { Header } from '../Header'
@@ -12,6 +13,8 @@ import {
 } from './styles'
 
 export function Main() {
+  const [isTableModalVisible, setIsTableModalVisible] = useState(false)
+
   return (
     <>
       <Container>
@@ -27,13 +30,13 @@ export function Main() {
 
       <Footer>
         <FooterContainer>
-          <Button onPress={() => alert('ai')} disabled>
+          <Button onPress={() => setIsTableModalVisible(true)}>
             Novo Pedido
           </Button>
         </FooterContainer>
       </Footer>
 
-      <TableModal />
+      <TableModal visible={isTableModalVisible} />
     </>
   )
 }
