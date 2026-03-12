@@ -2,6 +2,7 @@ import { Button } from '../Button'
 import { Categories } from '../Categories'
 import { Header } from '../Header'
 import { Menu } from '../Menu'
+import { TableModal } from '../TableModal'
 import {
   CategoriesContainer,
   Container,
@@ -31,6 +32,8 @@ export function Main() {
           </Button>
         </FooterContainer>
       </Footer>
+
+      <TableModal />
     </>
   )
 }
