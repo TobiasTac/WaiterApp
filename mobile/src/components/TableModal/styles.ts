@@ -13,3 +13,11 @@ export const ModalBody = styled.View`
   border-radius: 8px;
   padding: 24px;
 `
+
+export const Header = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`
+
+export const Form = styled.View``
