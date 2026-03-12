@@ -18,7 +18,11 @@ export function TableModal() {
           </Header>
 
           <Form>
-            <Input placeholder="Número da mesa" placeholderTextColor="#666" />
+            <Input
+              placeholder="Número da mesa"
+              placeholderTextColor="#666"
+              keyboardType="number-pad"
+            />
 
             <Button onPress={() => alert('Salvou')}> Salvar </Button>
           </Form>
