@@ -1,4 +1,4 @@
-import { Modal, TouchableOpacity } from 'react-native'
+import { Modal, Platform, TouchableOpacity } from 'react-native'
 import { Button } from '../Button'
 import { Close } from '../Icons/Close'
 import { Text } from '../Text'
@@ -7,7 +7,7 @@ import { Form, Header, Input, ModalBody, Overlay } from './styles'
 export function TableModal() {
   return (
     <Modal transparent>
-      <Overlay>
+      <Overlay behavior={Platform.OS === 'android' ? 'height' : 'padding'}>
         <ModalBody>
           <Header>
             <Text height="600">Informe a mesa</Text>
