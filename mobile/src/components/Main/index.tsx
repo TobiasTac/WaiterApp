@@ -35,9 +35,11 @@ export function Main() {
 
       <Footer>
         <FooterContainer>
-          <Button onPress={() => setIsTableModalVisible(true)}>
-            Novo Pedido
-          </Button>
+          {!selectedTable && (
+            <Button onPress={() => setIsTableModalVisible(true)}>
+              Novo Pedido
+            </Button>
+          )}
         </FooterContainer>
       </Footer>
 
