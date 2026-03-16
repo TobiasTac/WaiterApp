@@ -1,5 +1,6 @@
+import { TouchableOpacity } from 'react-native'
 import { Text } from '../Text'
-import { Container } from './styles'
+import { Container, Content } from './styles'
 
 interface HeaderProps {
   selectedTable: string
@@ -18,6 +19,20 @@ export function Header({ selectedTable }: HeaderProps) {
             <Text size={24}>APP</Text>
           </Text>
         </>
+      )}
+
+      {selectedTable && (
+        <Content>
+          <Text size={24} weight="600">
+            Pedido
+          </Text>
+
+          <TouchableOpacity>
+            <Text color="#D73035" weight="600" size={14}>
+              cancelar pedido
+            </Text>
+          </TouchableOpacity>
+        </Content>
       )}
     </Container>
   )
