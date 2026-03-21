@@ -1,7 +1,7 @@
 import React from 'react'
 import { TouchableOpacity } from 'react-native'
 import { Text } from '../Text'
-import { Container, Content, OrderHeader } from './styles'
+import { Container, Content, OrderHeader, Table } from './styles'
 
 interface HeaderProps {
   selectedTable: string
@@ -35,6 +35,10 @@ export function Header({ selectedTable }: HeaderProps) {
               </Text>
             </TouchableOpacity>
           </OrderHeader>
+
+          <Table>
+            <Text color="#666"> Mesa {selectedTable} </Text>
+          </Table>
         </Content>
       )}
     </Container>
