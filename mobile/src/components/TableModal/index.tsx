@@ -24,7 +24,7 @@ export function TableModal({ visible, onClose, onSave }: TableModalProps) {
       <Overlay behavior={Platform.OS === 'android' ? 'height' : 'padding'}>
         <ModalBody>
           <Header>
-            <Text height="600">Informe a mesa</Text>
+            <Text weight="600">Informe a mesa</Text>
 
             <TouchableOpacity onPress={onClose}>
               <Close color="#666" />
