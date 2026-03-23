@@ -3,11 +3,17 @@ import { Text } from '../Text'
 
 interface ProductModalProps {
   visible: boolean
+  onClose(): void
 }
 
-export function ProductModal({ visible }: ProductModalProps) {
+export function ProductModal({ visible, onClose }: ProductModalProps) {
   return (
-    <Modal visible={visible}>
+    <Modal
+      visible={visible}
+      animationType="slide"
+      presentationStyle="pageSheet"
+      onRequestClose={onClose}
+    >
       <Text> Fala rapeize </Text>
     </Modal>
   )
