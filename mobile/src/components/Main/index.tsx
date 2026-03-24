@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Button } from '../Button'
+import { Cart } from '../Cart'
 import { Categories } from '../Categories'
 import { Header } from '../Header'
 import { Menu } from '../Menu'
@@ -47,6 +48,8 @@ export function Main() {
               Novo Pedido
             </Button>
           )}
+
+          {selectedTable && <Cart />}
         </FooterContainer>
       </Footer>
 
