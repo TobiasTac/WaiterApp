@@ -1,4 +1,5 @@
-import { Modal } from 'react-native'
+import React from 'react'
+import { FlatList, Modal } from 'react-native'
 import { Product } from '../../types/Product'
 import { Close } from '../Icons/Close'
 import { Text } from '../Text'
@@ -6,6 +7,7 @@ import {
   CloseButton,
   Header,
   Image,
+  Ingredient,
   IngredientsContainer,
   ModalBody
 } from './styles'
@@ -53,6 +55,21 @@ export function ProductModal({ visible, onClose, product }: ProductModalProps) {
           <Text weight="600" color="666">
             Ingredientes
           </Text>
+
+          <FlatList
+            data={product.ingredients}
+            keyExtractor={ingredient => ingredient._id}
+            showsVerticalScrollIndicator={false}
+            style={{ marginTop: 16 }}
+            renderItem={({ item: ingredient }) => (
+              <Ingredient>
+                <Text> {ingredient.icon} </Text>
+                <Text size={14} color="#666" style={{ marginLeft: 20 }}>
+                  {ingredient.name}
+                </Text>
+              </Ingredient>
+            )}
+          />
         </IngredientsContainer>
       </ModalBody>
     </Modal>
