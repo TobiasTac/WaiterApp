@@ -26,6 +26,7 @@ export const Header = styled.View``
 
 export const IngredientsContainer = styled.View`
   margin-top: 32px;
+  flex: 1;
 `
 
 export const Ingredient = styled.View`
