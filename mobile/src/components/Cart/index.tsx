@@ -1,5 +1,56 @@
+import React from 'react'
 import { FlatList } from 'react-native'
+import { CartItem } from '../../types/CartItem'
+import {
+  Actions,
+  Image,
+  Item,
+  ProductContainer,
+  ProductDetails,
+  QuantityContainer
+} from './styles'
 
-export function Cart() {
-  return <FlatList data={[]} />
+import { formatCurrency } from '../../utils/formatCurrency'
+import { Text } from '../Text'
+
+interface CartProps {
+  cartItems: CartItem[]
+}
+
+export function Cart({ cartItems }: CartProps) {
+  return (
+    <FlatList
+      data={cartItems}
+      keyExtractor={cartItem => cartItem.product._id}
+      showsVerticalScrollIndicator={false}
+      renderItem={({ item: cartItem }) => (
+        <Item>
+          <ProductContainer>
+            <Image
+              source={{
+                uri: `http://10.10.254.67:3001/uploads/${cartItem.product.imagePath}`
+                //uri: `http://192.168.0.18:3001/uploads/${product?.imagePath}`
+              }}
+            />
+
+            <QuantityContainer>
+              <Text size={14} color="#666">
+                {cartItem.quantity} x
+              </Text>
+            </QuantityContainer>
+
+            <ProductDetails>
+              <Text size={14} weight="600">
+                {cartItem.product.name}
+              </Text>
+              <Text size={14} color="#666" style={{ marginTop: 4 }}>
+                {formatCurrency(cartItem.product.price)}
+              </Text>
+            </ProductDetails>
+          </ProductContainer>
+          <Actions></Actions>
+        </Item>
+      )}
+    />
+  )
 }
