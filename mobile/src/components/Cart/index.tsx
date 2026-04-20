@@ -12,6 +12,7 @@ import {
   TotalContainer
 } from './styles'
 
+import { Product } from '../../types/Product'
 import { formatCurrency } from '../../utils/formatCurrency'
 import { Button } from '../Button'
 import { MinusCircle } from '../Icons/MinusCircle'
@@ -20,9 +21,10 @@ import { Text } from '../Text'
 
 interface CartProps {
   cartItems: CartItem[]
+  onAdd(product: Product): void
 }
 
-export function Cart({ cartItems }: CartProps) {
+export function Cart({ cartItems, onAdd }: CartProps) {
   return (
     <>
       {cartItems.length > 0 && (
@@ -57,7 +59,10 @@ export function Cart({ cartItems }: CartProps) {
                 </ProductDetails>
               </ProductContainer>
               <Actions>
-                <TouchableOpacity style={{ marginRight: 24 }}>
+                <TouchableOpacity
+                  style={{ marginRight: 24 }}
+                  onPress={() => onAdd(cartItem.product)}
+                >
                   <PlusCircle />
                 </TouchableOpacity>
 

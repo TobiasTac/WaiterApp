@@ -7,13 +7,7 @@ import { Categories } from '../Categories'
 import { Header } from '../Header'
 import { Menu } from '../Menu'
 import { TableModal } from '../TableModal'
-import {
-  CategoriesContainer,
-  Container,
-  Footer,
-  FooterContainer,
-  MenuContainer
-} from './styles'
+import { CategoriesContainer, Container, Footer, MenuContainer } from './styles'
 
 export function Main() {
   const [isTableModalVisible, setIsTableModalVisible] = useState(false)
@@ -74,15 +68,17 @@ export function Main() {
       </Container>
 
       <Footer>
-        <FooterContainer>
-          {!selectedTable && (
-            <Button onPress={() => setIsTableModalVisible(true)}>
-              Novo Pedido
-            </Button>
-          )}
+        {/* <FooterContainer> */}
+        {!selectedTable && (
+          <Button onPress={() => setIsTableModalVisible(true)}>
+            Novo Pedido
+          </Button>
+        )}
 
-          {selectedTable && <Cart cartItems={cartItems} />}
-        </FooterContainer>
+        {selectedTable && (
+          <Cart cartItems={cartItems} onAdd={handleAddToCart} />
+        )}
+        {/* </FooterContainer> */}
       </Footer>
 
       <TableModal
