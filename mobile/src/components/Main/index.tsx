@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { CartItem } from '../../types/CartItem'
+import { Product } from '../../types/Product'
 import { Button } from '../Button'
 import { Cart } from '../Cart'
 import { Categories } from '../Categories'
@@ -16,6 +18,7 @@ import {
 export function Main() {
   const [isTableModalVisible, setIsTableModalVisible] = useState(false)
   const [selectedTable, setSelectedTable] = useState('')
+  const [cartItems, setCartItems] = useState<CartItem[]>([])
 
   function handleSaveTable(table: string) {
     setSelectedTable(table)
@@ -23,6 +26,10 @@ export function Main() {
 
   function handleCancelOrder() {
     setSelectedTable('')
+  }
+
+  function handleAddToCart(product: Product) {
+    alert(product.name)
   }
 
   return (
@@ -37,7 +44,7 @@ export function Main() {
           <Categories />
         </CategoriesContainer>
         <MenuContainer>
-          <Menu />
+          <Menu onAddToCart={handleAddToCart} />
         </MenuContainer>
       </Container>
 
@@ -49,7 +56,7 @@ export function Main() {
             </Button>
           )}
 
-          {selectedTable && <Cart />}
+          {selectedTable && <Cart cartItems={cartItems} />}
         </FooterContainer>
       </Footer>
 

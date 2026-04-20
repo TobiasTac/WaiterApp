@@ -14,7 +14,11 @@ import {
   Separator
 } from './styles'
 
-export function Menu() {
+interface MenuProps {
+  onAddToCart(product: Product): void
+}
+
+export function Menu({ onAddToCart }: MenuProps) {
   const [isModalVisible, setIsModalVisible] = useState(false)
   const [selectedProduct, setSelectedProduct] = useState<null | Product>(null)
 
@@ -35,8 +39,8 @@ export function Menu() {
           <ProductContainer onPress={() => handleOpenModal(product)}>
             <ProductImage
               source={{
-                uri: `http://10.10.254.67:3001/uploads/${product.imagePath}`
-                //uri: `http://192.168.0.18:3001/uploads/${product.imagePath}`
+                // uri: `http://10.10.240.239:3001/uploads/${product.imagePath}`
+                uri: `http://192.168.0.18:3001/uploads/${product.imagePath}`
               }}
             />
             <ProductDetails>
@@ -49,7 +53,7 @@ export function Menu() {
               </Text>
             </ProductDetails>
 
-            <AddToCartButton>
+            <AddToCartButton onPress={() => onAddToCart(product)}>
               <PlusCircle />
             </AddToCartButton>
           </ProductContainer>
@@ -60,6 +64,7 @@ export function Menu() {
         visible={isModalVisible}
         onClose={() => setIsModalVisible(false)}
         product={selectedProduct}
+        onAddToCart={onAddToCart}
       />
     </>
   )
