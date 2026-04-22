@@ -39,7 +39,10 @@ export function Cart({ cartItems, onAdd, onDecrement }: CartProps) {
 
   return (
     <>
-      <OrderConfirmedModal visible={isModalVisible} />
+      <OrderConfirmedModal
+        visible={isModalVisible}
+        onOk={() => setIsModalVisible(false)}
+      />
 
       {cartItems.length > 0 && (
         <FlatList
