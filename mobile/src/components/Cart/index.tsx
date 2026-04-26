@@ -33,6 +33,7 @@ export function Cart({
   onDecrement,
   onConfirmOrder
 }: CartProps) {
+  const [isLoading] = useState(false)
   const [isModalVisible, setIsModalVisible] = useState(false)
 
   const total = cartItems.reduce((acc, cartItem) => {
@@ -64,7 +65,7 @@ export function Cart({
                 <Image
                   source={{
                     // uri: `http://10.10.240.239:3001/uploads/${cartItem.product.imagePath}`
-                    uri: `http://192.168.0.18:3001/uploads/${cartItem.product.imagePath}`
+                    uri: `http://192.168.0.12:3001/uploads/${cartItem.product.imagePath}`
                   }}
                 />
 
@@ -113,7 +114,11 @@ export function Cart({
             <Text color="#999"> Seu carrinho está vazio </Text>
           )}
         </TotalContainer>
-        <Button onPress={handlerConfirmOrder} disabled={cartItems.length === 0}>
+        <Button
+          onPress={handlerConfirmOrder}
+          disabled={cartItems.length === 0}
+          loading={isLoading}
+        >
           Confirmar Pedido
         </Button>
       </Summary>
