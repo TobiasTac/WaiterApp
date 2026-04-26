@@ -1,14 +1,19 @@
 import { Router } from 'express';
+
 import multer from 'multer';
 import path from 'node:path';
+
 import { createCategory } from './app/useCases/categories/createCategory';
 import { deleteCategory } from './app/useCases/categories/deleteCategory';
 import { listCategories } from './app/useCases/categories/listCategories';
 import { listProductsByCategory } from './app/useCases/categories/listProductsByCategory';
+import { updateCategory } from './app/useCases/categories/updateCategory';
+
 import { cancelOrder } from './app/useCases/orders/cancelOrder';
 import { changeOrderStatus } from './app/useCases/orders/changeOrderStatus';
 import { createOrder } from './app/useCases/orders/createOrder';
 import { listOrders } from './app/useCases/orders/listOrders';
+
 import { createProduct } from './app/useCases/products/createProduct';
 import { listProducts } from './app/useCases/products/listProducts';
 
@@ -30,6 +35,9 @@ router.get('/categories', listCategories);
 
 // Create category
 router.post('/categories', createCategory);
+
+// Create category
+router.put('/categories/:categoryId', updateCategory);
 
 // Delete category
 router.delete('/categories/:categoryId', deleteCategory);
