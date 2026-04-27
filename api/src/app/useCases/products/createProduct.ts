@@ -7,8 +7,6 @@ export async function createProduct(req: Request, res: Response) {
 
     const { name, description, price, category, ingredients } = req.body;
 
-    console.log(ingredients);
-
     const product = await Product.create({
       name,
       description,
