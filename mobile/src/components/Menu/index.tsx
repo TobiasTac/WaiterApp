@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { FlatList } from 'react-native'
 import { Product } from '../../types/Product'
+import { baseURL } from '../../utils/api'
 import { formatCurrency } from '../../utils/formatCurrency'
 import { PlusCircle } from '../Icons/PlusCircle'
 import { ProductModal } from '../ProductModal'
@@ -39,8 +40,7 @@ export function Menu({ onAddToCart, products }: MenuProps) {
           <ProductContainer onPress={() => handleOpenModal(product)}>
             <ProductImage
               source={{
-                // uri: `http://10.10.240.239:3001/uploads/${product.imagePath}`
-                uri: `http://192.168.0.12:3001/uploads/${product.imagePath}`
+                uri: `${baseURL}/uploads/${product.imagePath}`
               }}
             />
             <ProductDetails>

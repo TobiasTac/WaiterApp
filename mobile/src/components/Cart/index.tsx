@@ -13,6 +13,7 @@ import {
 } from './styles'
 
 import { Product } from '../../types/Product'
+import { baseURL } from '../../utils/api'
 import { formatCurrency } from '../../utils/formatCurrency'
 import { Button } from '../Button'
 import { MinusCircle } from '../Icons/MinusCircle'
@@ -64,8 +65,7 @@ export function Cart({
               <ProductContainer>
                 <Image
                   source={{
-                    // uri: `http://10.10.240.239:3001/uploads/${cartItem.product.imagePath}`
-                    uri: `http://192.168.0.12:3001/uploads/${cartItem.product.imagePath}`
+                    uri: `${baseURL}/uploads/${cartItem.product.imagePath}`
                   }}
                 />
 
