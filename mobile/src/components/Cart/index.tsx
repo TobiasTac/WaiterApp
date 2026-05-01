@@ -13,7 +13,7 @@ import {
 } from './styles'
 
 import { Product } from '../../types/Product'
-import { baseURL } from '../../utils/api'
+import { api, baseURL } from '../../utils/api'
 import { formatCurrency } from '../../utils/formatCurrency'
 import { Button } from '../Button'
 import { MinusCircle } from '../Icons/MinusCircle'
@@ -26,13 +26,15 @@ interface CartProps {
   onAdd(product: Product): void
   onDecrement(product: Product): void
   onConfirmOrder(): void
+  selectedTable: string
 }
 
 export function Cart({
   cartItems,
   onAdd,
   onDecrement,
-  onConfirmOrder
+  onConfirmOrder,
+  selectedTable
 }: CartProps) {
   const [isLoading] = useState(false)
   const [isModalVisible, setIsModalVisible] = useState(false)
@@ -41,8 +43,17 @@ export function Cart({
     return acc + cartItem.quantity * cartItem.product.price
   }, 0)
 
-  function handlerConfirmOrder() {
-    setIsModalVisible(true)
+  async function handlerConfirmOrder() {
+    const payload = {
+      table: selectedTable,
+      products: cartItems.map(cartItem => ({
+        product: cartItem.product._id,
+        quantity: cartItem.quantity
+      }))
+    }
+
+    await api.post('/orders', payload)
+    // setIsModalVisible(true)
   }
 
   function handleOk() {
