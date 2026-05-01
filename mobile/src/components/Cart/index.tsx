@@ -36,7 +36,7 @@ export function Cart({
   onConfirmOrder,
   selectedTable
 }: CartProps) {
-  const [isLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   const [isModalVisible, setIsModalVisible] = useState(false)
 
   const total = cartItems.reduce((acc, cartItem) => {
@@ -44,6 +44,8 @@ export function Cart({
   }, 0)
 
   async function handlerConfirmOrder() {
+    setIsLoading(true)
+
     const payload = {
       table: selectedTable,
       products: cartItems.map(cartItem => ({
@@ -53,7 +55,8 @@ export function Cart({
     }
 
     await api.post('/orders', payload)
-    // setIsModalVisible(true)
+    setIsLoading(false)
+    setIsModalVisible(true)
   }
 
   function handleOk() {
