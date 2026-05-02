@@ -38,6 +38,7 @@ export function OrdersBoard({ icon, title, orders }: OrdersBoardProps) {
         order={selectedOrder}
         onClose={handleCloseModal}
         onCancelOrder={handleCancelOrder}
+        isLoading={isLoading}
       />
 
       <header>
