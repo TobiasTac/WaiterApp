@@ -3,6 +3,7 @@ import { Actions, ModalBody, OrderDetails, Overlay } from './styles'
 import { useCallback, useEffect } from 'react'
 import closeIcon from '../../assets/images/close-icon.svg'
 import { Order } from '../../types/Order'
+import { baseURL } from '../../utils/api'
 import { formatCurrency } from '../../utils/formatCurrency'
 
 interface OrderModalProps {
@@ -90,7 +91,7 @@ export function OrderModal({
             {order.products.map(({ _id, product, quantity }) => (
               <div className="item" key={_id}>
                 <img
-                  src={`http://localhost:3001/uploads/${product.imagePath}`}
+                  src={`${baseURL}/uploads/${product.imagePath}`}
                   alt={product.name}
                   width="56"
                   height="28.51"
