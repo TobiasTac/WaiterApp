@@ -25,3 +25,5 @@ dist-ssr
 
 .yarn
 .yarnrc.yml
+.pnp.cjs
+.pnp.loader.mjs
