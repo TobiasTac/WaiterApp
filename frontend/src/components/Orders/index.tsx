@@ -1,32 +1,23 @@
+import { useEffect, useState } from 'react'
 import { Order } from '../../types/Order'
+import { api } from '../../utils/api'
 import { OrdersBoard } from '../OrdersBoard'
 import { Container } from './styles'
 
-const orders: Order[] = [
-  {
-    _id: '69a8a8536b79540b7c8ccdf2',
-    table: '2',
-    status: 'WAITING',
-    products: [
-      {
-        product: {
-          name: 'Pizza',
-          imagePath: '1772580663203-quatro-queijos.png',
-          price: 40,
-        },
-        quantity: 3,
-        _id: '69a8a8536b79540b7c8ccdf3',
-      },
-    ],
-  },
-]
-
 export function Orders() {
+  const [orders, setOrders] = useState<Order[]>([])
+
+  useEffect(() => {
+    api.get('/orders').then(({ data }) => {
+      setOrders(data)
+    })
+  }, [])
+
   return (
     <Container>
       <OrdersBoard icon="🕑" title="Fila de espera" orders={orders} />
-      <OrdersBoard icon="👩‍🍳" title="Em produção" orders={[]} />
-      <OrdersBoard icon="✅" title="Pronto!" orders={[]} />
+      <OrdersBoard icon="👩‍🍳" title="Em produção" orders={orders} />
+      <OrdersBoard icon="✅" title="Pronto!" orders={orders} />
     </Container>
   )
 }
