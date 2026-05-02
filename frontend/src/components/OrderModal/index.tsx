@@ -9,6 +9,7 @@ interface OrderModalProps {
   visible: boolean
   order: Order | null
   onClose(): void
+  onCancelOrder(): Promise<void>
 }
 
 const STATUS_PROPS = {
@@ -26,7 +27,12 @@ const STATUS_PROPS = {
   },
 } as any
 
-export function OrderModal({ order, visible, onClose }: OrderModalProps) {
+export function OrderModal({
+  order,
+  visible,
+  onClose,
+  onCancelOrder,
+}: OrderModalProps) {
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -112,7 +118,7 @@ export function OrderModal({ order, visible, onClose }: OrderModalProps) {
             <strong>Iniciar Produção</strong>
           </button>
 
-          <button type="button" className="secondary">
+          <button type="button" className="secondary" onClick={onCancelOrder}>
             Cancelar Pedido
           </button>
         </Actions>
