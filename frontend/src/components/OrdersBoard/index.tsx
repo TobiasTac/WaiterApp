@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Order } from '../../types/Order'
+import { api } from '../../utils/api'
 import { OrderModal } from '../OrderModal'
 import { Board, OrdersContainer } from './styles'
 
@@ -21,6 +22,10 @@ export function OrdersBoard({ icon, title, orders }: OrdersBoardProps) {
   function handleCloseModal() {
     setIsModalVisible(false)
     setSelectedOrder(null)
+  }
+
+  async function handleCancelOrder() {
+    await api.delete(`/orders/${selectedOrder?._id}`)
   }
 
   return (
