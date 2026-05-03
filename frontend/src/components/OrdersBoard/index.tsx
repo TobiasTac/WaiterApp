@@ -32,6 +32,15 @@ export function OrdersBoard({
     setSelectedOrder(null)
   }
 
+  async function handleChangeOrderStatus() {
+    setIsLoading(true)
+
+    const newStatus =
+      selectedOrder?.status === 'WAITING' ? 'IN_PRODUCTION' : 'DONE'
+
+    await api.patch(`/orders/${selectedOrder?._id}`)
+  }
+
   async function handleCancelOrder() {
     setIsLoading(true)
 
