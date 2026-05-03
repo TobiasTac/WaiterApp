@@ -12,6 +12,7 @@ interface OrderModalProps {
   onClose(): void
   onCancelOrder(): Promise<void>
   isLoading: boolean
+  onChangeOrderStatus(): void
 }
 
 const STATUS_PROPS = {
@@ -35,6 +36,7 @@ export function OrderModal({
   onClose,
   onCancelOrder,
   isLoading,
+  onChangeOrderStatus,
 }: OrderModalProps) {
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
@@ -117,7 +119,12 @@ export function OrderModal({
 
         <Actions>
           {order.status !== 'DONE' && (
-            <button type="button" className="primary" disabled={isLoading}>
+            <button
+              type="button"
+              className="primary"
+              disabled={isLoading}
+              onClick={onChangeOrderStatus}
+            >
               <span>🧑‍🍳</span>
               <strong>Iniciar Produção</strong>
             </button>
