@@ -116,10 +116,12 @@ export function OrderModal({
         </OrderDetails>
 
         <Actions>
-          <button type="button" className="primary" disabled={isLoading}>
-            <span>🧑‍🍳</span>
-            <strong>Iniciar Produção</strong>
-          </button>
+          {order.status !== 'DONE' && (
+            <button type="button" className="primary" disabled={isLoading}>
+              <span>🧑‍🍳</span>
+              <strong>Iniciar Produção</strong>
+            </button>
+          )}
 
           <button
             type="button"
